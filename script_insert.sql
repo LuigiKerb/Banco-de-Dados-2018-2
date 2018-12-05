@@ -252,7 +252,6 @@ insert into registro
 (funcionario_idFuncionario,email,sexo,cpf,identidade,UFidentidade,orgaoExpedidor,
 DataNascimento,cidade,cep,telefone)
 values
-(1,),
 (2,'clausius@ufv.br','M','674830714','243941985','MG','SSP','1989/02/19',
 '3438265593'),
 (3,'guilherme.pena@ufv.br','M','463851016','202021592','MG','SSP','1987/06/15',
