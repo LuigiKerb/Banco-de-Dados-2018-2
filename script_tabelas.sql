@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Aluno` (
     `Endereco` VARCHAR(45),
     `Telefone` VARCHAR(11),
     `Titulo_Eleitor` INT,
+    `email` VARCHAR(45),
     PRIMARY KEY (`Matricula_Aluno`)
 );
 -- -----------------------------------------------------
