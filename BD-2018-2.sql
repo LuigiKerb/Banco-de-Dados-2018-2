@@ -96,12 +96,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Periodo` (
 -- Table `mydb`.`Disciplinas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Disciplinas` (
-    `Codigo` VARCHAR(20) NOT NULL,
-    `Nome` VARCHAR(30) NULL,
-    `Creditos` INT NULL,
-    `CargaHoraria_Teorica` INT NULL,
-    `CargaHoraria_Pratica` INT NULL,
-    `Status_da_Disciplina` VARCHAR(45) NULL,
+    `Codigo` VARCHAR(6) NOT NULL,
+    `Nome` VARCHAR(55),
+    `Creditos` INT,
+    `CargaHoraria_Teorica` INT,
+    `CargaHoraria_Pratica` INT,
+    `Status_da_Disciplina` VARCHAR(45),
     `Periodo_Ano` INT NOT NULL,
     PRIMARY KEY (`Codigo` , `Periodo_Ano`),
     FOREIGN KEY (`Periodo_Ano`)
@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Curso` (
     `ID_Curso` INT NOT NULL,
     `Aluno_Matricula_A` INT NULL,
     `Instituto_idInstituto` INT NOT NULL,
-    `Disciplinas_Codigo` VARCHAR(20) NOT NULL,
+    `Disciplinas_Codigo` VARCHAR(6) NOT NULL,
     `Disciplinas_Periodo_Ano` INT NOT NULL,
     PRIMARY KEY (`ID_Curso`),
     FOREIGN KEY (`Aluno_Matricula_A`)
@@ -133,12 +133,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Curso` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Turma` (
     `Local` VARCHAR(30) NOT NULL,
-    `Dia` DATE NULL,
-    `Horario` INT NULL,
-    PRIMARY KEY (`Local`),
-    foreign key `mydb`.(``)
-    ON DELETE NO ACTION ON UPDATE NO ACTION,
-    references`mydb`.
+    `Dia` enum('Segunda','Terça','Quarta','Quinta','Sexta'),
+    `Horario` varchar(5),-- formato hh:mm
+    -- `Disciplina_local` varchar(6),
+    PRIMARY KEY (`Local`)
+    -- foreign key (`Disciplina_local`)
+	-- references `mydb`.`Disciplinas` (`Codigo`)
+    -- ON DELETE NO ACTION ON UPDATE NO ACTION,
 );
 -- -----------------------------------------------------
 -- Table `mydb`.`Matriculado`
@@ -152,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Matriculado` (
         ON DELETE NO ACTION ON UPDATE NO ACTION,
     FOREIGN KEY (`Disciplinas_Codigo`)
         REFERENCES `mydb`.`Disciplinas` (`Codigo`)
-        ON DELETE NO ACTION ON UPDATE NO ACTION
+        ON DELETE NO ACTION        ON UPDATE NO ACTION
 );
 -- -----------------------------------------------------
 -- Table `mydb`.`Conclui`
