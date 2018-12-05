@@ -141,9 +141,10 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Curso` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Turma` (
     `Local` VARCHAR(30) NOT NULL,
+    `Curso_ID_Curso` varchar(6) not null,
     `Dia` ENUM('Segunda', 'Terca', 'Quarta', 'Quinta', 'Sexta'),
     `Horario` VARCHAR(5) DEFAULT '00-00',
-    `Curso_ID_Curso` varchar(6) not null,
+    `Tipo` enum('P','T'),
     `Periodo_Ano` INT,
     PRIMARY KEY (`Local`),
     FOREIGN KEY (`Curso_ID_Curso`)
