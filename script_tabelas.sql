@@ -1,6 +1,7 @@
 -- Luigi Milagres de Miranda	- Matricula: 5181
 -- Matheus Dias de Queiroz 		- Matricula: 5213
 -- Tiemy Shibuya Watanabe		- Matricula: 5214
+
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
