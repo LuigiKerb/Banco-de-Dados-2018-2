@@ -1,21 +1,20 @@
--- Luigi Miranda 			- Matricula:
--- Matheus Dias de Queiroz 	- Matricula: 5213
--- Tiemy 					- Matricula:
+-- Luigi Milagres de Miranda	- Matricula: 5181
+-- Matheus Dias de Queiroz 		- Matricula: 5213
+-- Tiemy Shibuya Watanabe		- Matricula: 5214
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `mydb`;
 USE `mydb`;
-
 -- -----------------------------------------------------
 -- Table `mydb`.`Dependente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Dependente` (
     `CPF` INT NOT NULL,
-    `Nome` VARCHAR(30) NULL,
-    `Sexo` VARCHAR(30) NULL,
-    `Data_Nascimento` DATE NULL,
-    `Funcionario` VARCHAR(30) NULL,
+    `Nome` VARCHAR(30),
+    `Sexo` VARCHAR(30),
+    `Data_Nascimento` DATE,
+    `Funcionario` VARCHAR(30),
     PRIMARY KEY (`CPF`)
 );
 -- -----------------------------------------------------
@@ -23,12 +22,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Dependente` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Funcionario` (
     `Matricula` INT NOT NULL,
-    `Dependente_CPF` INT NOT NULL,
+    `Dependente_CPF` INT,
     `Nome` VARCHAR(45),
     `CPF` INT NOT NULL,
-    `Endereço` VARCHAR(45) NOT NULL,
-    `Telefone` VARCHAR(45) NOT NULL,
-    PRIMARY KEY (`Matricula` , `Dependente_CPF`),
+    `Endereço` VARCHAR(45),
+    `Telefone` VARCHAR(45),
+    PRIMARY KEY (`Matricula`),
     FOREIGN KEY (`Dependente_CPF`)
         REFERENCES `mydb`.`Dependente` (`CPF`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -39,8 +38,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Funcionario` (
 CREATE TABLE IF NOT EXISTS `mydb`.`Cargo` (
     `idCargo` INT NOT NULL,
     `Funcionario_Matricula` INT NOT NULL,
-    `Funcionario_Dependente_CPF` INT NOT NULL,
-    PRIMARY KEY (`idCargo` , `Funcionario_Matricula` , `Funcionario_Dependente_CPF`),
+    `Funcionario_Dependente_CPF` INT,
+    PRIMARY KEY (`idCargo` , `Funcionario_Matricula`),
     FOREIGN KEY (`Funcionario_Matricula` , `Funcionario_Dependente_CPF`)
         REFERENCES `mydb`.`Funcionario` (`Matricula` , `Dependente_CPF`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -52,8 +51,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Cargo` (
 CREATE TABLE IF NOT EXISTS `mydb`.`Professor` (
     `ID_Professor` INT NOT NULL,
     `Funcionario_Matricula` INT NOT NULL,
-    `Funcionario_Dependente_CPF` INT NOT NULL,
-    PRIMARY KEY (`ID_Professor` , `Funcionario_Matricula` , `Funcionario_Dependente_CPF`),
+    `Funcionario_Dependente_CPF` INT,
+    PRIMARY KEY (`ID_Professor` , `Funcionario_Matricula`),
     FOREIGN KEY (`Funcionario_Matricula` , `Funcionario_Dependente_CPF`)
         REFERENCES `mydb`.`Funcionario` (`Matricula` , `Dependente_CPF`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -62,24 +61,25 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Professor` (
 -- Table `mydb`.`Aluno`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Aluno` (
-    `Matricula_A` INT NOT NULL,
-    `CPF` VARCHAR(45) NOT NULL,
-    `RG` INT NOT NULL,
-    `Nome` VARCHAR(30) NOT NULL,
-    `Filiação` VARCHAR(50),
+    `Matricula_Aluno` INT NOT NULL,
+    `CPF` VARCHAR(11) NOT NULL,
+    `RG` VARCHAR(9),
+    `Nome` VARCHAR(45) NOT NULL,
+    `Filiação_Mae` VARCHAR(50),
+    `Filiação_Pai` VARCHAR(50),
     `Data_Nascimento` DATE,
-    `Sexo` VARCHAR(30),
-    `Endereço` VARCHAR(30),
-    `Telefone` INT,
+    `Sexo` ENUM('M', 'F'),
+    `Endereço` VARCHAR(45),
+    `Telefone` VARCHAR(11),
     `Titulo_Eleitor` INT,
-    PRIMARY KEY (`Matricula_A`)
+    PRIMARY KEY (`Matricula_Aluno`)
 );
 -- -----------------------------------------------------
 -- Table `mydb`.`Instituto`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Instituto` (
     `idInstituto` INT NOT NULL,
-    `TipoInstituto` VARCHAR(30) NULL,
+    `TipoInstituto` VARCHAR(30),
     PRIMARY KEY (`idInstituto`)
 )  ENGINE=INNODB;
 -- -----------------------------------------------------
@@ -87,10 +87,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Instituto` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Periodo` (
     `Ano` INT NOT NULL,
-    `Tipo_Periodo` INT NULL,
-    `periodo_idCurso` INT NOT NULL,
-	`periodo_idDisciplina` VARCHAR(30),
-    PRIMARY KEY (`Ano`)
+    `Tipo_Periodo` ENUM('0', '1', '2'),
+    `periodo_idCurso` INT,
+    `periodo_idDisciplina` VARCHAR(6),
+    PRIMARY KEY (`Ano`),
+    FOREIGN KEY (`periodo_idDisciplina`)
+        REFERENCES `mydb`.`Disciplinas` (`Codigo`)
+        ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 -- -----------------------------------------------------
 -- Table `mydb`.`Disciplinas`
@@ -113,13 +116,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Disciplinas` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Curso` (
     `ID_Curso` INT NOT NULL,
-    `Aluno_Matricula_A` INT NULL,
+    `Aluno_Matricula_Aluno` INT,
     `Instituto_idInstituto` INT NOT NULL,
     `Disciplinas_Codigo` VARCHAR(6) NOT NULL,
     `Disciplinas_Periodo_Ano` INT NOT NULL,
     PRIMARY KEY (`ID_Curso`),
-    FOREIGN KEY (`Aluno_Matricula_A`)
-        REFERENCES `mydb`.`Aluno` (`Matricula_A`)
+    FOREIGN KEY (`Aluno_Matricula_Aluno`)
+        REFERENCES `mydb`.`Aluno` (`Matricula_Aluno`)
         ON DELETE NO ACTION ON UPDATE NO ACTION,
     FOREIGN KEY (`Instituto_idInstituto`)
         REFERENCES `mydb`.`Instituto` (`idInstituto`)
@@ -129,55 +132,59 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Curso` (
         ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 -- -----------------------------------------------------
--- Table `mydb`.`Turma` ADICIONAR CHAVE ESTRANGEIRA DE INSERÇÃO 
+-- Table `mydb`.`Turma` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Turma` (
     `Local` VARCHAR(30) NOT NULL,
-    `Dia` enum('Segunda','Terça','Quarta','Quinta','Sexta'),
-    `Horario` varchar(5),-- formato hh:mm
-    -- `Disciplina_local` varchar(6),
-    PRIMARY KEY (`Local`)
-    -- foreign key (`Disciplina_local`)
-	-- references `mydb`.`Disciplinas` (`Codigo`)
-    -- ON DELETE NO ACTION ON UPDATE NO ACTION,
+    `Dia` ENUM('Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta') DEFAULT 'A Definir',
+    `Horário` VARCHAR(5) DEFAULT '00:00',
+    `Curso_ID_Curso` INT,
+    `Curso_Aluno_Matrícula_A` INT,
+    `Curso_Instituto_idInstituto` INT,
+    `Curso_Disciplinas_Código` VARCHAR(6),
+    `Curso_Disciplinas_Periodo_Ano` INT,
+    PRIMARY KEY (`Local`),
+    FOREIGN KEY (`Curso_ID_Curso` , `Curso_Aluno_Matrícula_A` , `Curso_Instituto_idInstituto` , `Curso_Disciplinas_Código` , `Curso_Disciplinas_Periodo_Ano`)
+        REFERENCES `mydb`.`Curso` (`ID_Curso` , `Aluno_Matrícula_A` , `Instituto_idInstituto` , `Disciplinas_Código` , `Disciplinas_Periodo_Ano`)
+        ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 -- -----------------------------------------------------
 -- Table `mydb`.`Matriculado`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Matriculado` (
-    `Aluno_Matricula_A` INT NOT NULL,
-    `Disciplinas_Codigo` VARCHAR(20) NOT NULL,
-    PRIMARY KEY (`Aluno_Matricula_A` , `Disciplinas_Codigo`),
-    FOREIGN KEY (`Aluno_Matricula_A`)
-        REFERENCES `mydb`.`Aluno` (`Matricula_A`)
+    `Aluno_Matricula_Aluno` INT NOT NULL,
+    `Disciplinas_Codigo` VARCHAR(6) NOT NULL,
+    PRIMARY KEY (`Aluno_Matricula_Aluno` , `Disciplinas_Codigo`),
+    FOREIGN KEY (`Aluno_Matricula_Aluno`)
+        REFERENCES `mydb`.`Aluno` (`Matricula_Aluno`)
         ON DELETE NO ACTION ON UPDATE NO ACTION,
     FOREIGN KEY (`Disciplinas_Codigo`)
         REFERENCES `mydb`.`Disciplinas` (`Codigo`)
-        ON DELETE NO ACTION        ON UPDATE NO ACTION
+        ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 -- -----------------------------------------------------
 -- Table `mydb`.`Conclui`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Conclui` (
-    `Disciplinas_Codigo` VARCHAR(20) NOT NULL,
-    `Aluno_Matricula_A` INT NOT NULL,
-    `Nota_Final` INT NULL,
-    `Numero_faltas` INT NULL,
-    `Situacao_Academica` VARCHAR(45) NULL,
-    PRIMARY KEY (`Disciplinas_Codigo` , `Aluno_Matricula_A`),
+    `Disciplinas_Codigo` VARCHAR(6) NOT NULL,
+    `Aluno_Matricula_Aluno` INT NOT NULL,
+    `Nota_Final` INT,
+    `Numero_faltas` INT,
+    `Situacao_Academica` VARCHAR(45),
+    PRIMARY KEY (`Disciplinas_Codigo` , `Aluno_Matricula_Aluno`),
     FOREIGN KEY (`Disciplinas_Codigo`)
         REFERENCES `mydb`.`Disciplinas` (`Codigo`)
         ON DELETE NO ACTION ON UPDATE NO ACTION,
-    FOREIGN KEY (`Aluno_Matricula_A`)
-        REFERENCES `mydb`.`Aluno` (`Matricula_A`)
+    FOREIGN KEY (`Aluno_Matricula_Aluno`)
+        REFERENCES `mydb`.`Aluno` (`Matricula_Aluno`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 -- -----------------------------------------------------
 -- Table `mydb`.`pre-requisito`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`pre-requisito` (
-    `Disciplinas_Codigo` VARCHAR(20) not NULL,
-    `Disciplinas_Codigo1` VARCHAR(20) not NULL,
+    `Disciplinas_Codigo` VARCHAR(6) NOT NULL,
+    `Disciplinas_Codigo1` VARCHAR(6) NOT NULL,
     `Disciplina_Pre` VARCHAR(45),
     PRIMARY KEY (`Disciplinas_Codigo` , `Disciplinas_Codigo1`),
     FOREIGN KEY (`Disciplinas_Codigo`)
@@ -191,20 +198,19 @@ CREATE TABLE IF NOT EXISTS `mydb`.`pre-requisito` (
 -- Table `mydb`.`Disciplinas_has_Turma`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Disciplinas_has_Turma` (
-    `Disciplinas_Codigo` VARCHAR(20) NOT NULL,
-    `Disciplinas_Periodo_Ano` INT NOT NULL,
+    `Disciplinas_Codigo` VARCHAR(6) NOT NULL,
+    `Disciplinas_Periodo_Ano` INT not null,
     `Turma_Local` VARCHAR(30) NOT NULL,
-    `Professor_ID_Professor` INT NOT NULL,
-    `Professor_Funcionario_Matricula` INT NOT NULL,
-    `Professor_Funcionario_Dependente_CPF` INT NOT NULL,
-    PRIMARY KEY (`Disciplinas_Codigo` , `Disciplinas_Periodo_Ano` , `Turma_Local` , `Professor_ID_Professor` , `Professor_Funcionario_Matricula` , `Professor_Funcionario_Dependente_CPF`),
+    `Professor_ID_Professor` INT not null,
+    `Professor_Funcionario_Matricula` INT,
+    PRIMARY KEY (`Disciplinas_Codigo`,`Turma_Local`),
     FOREIGN KEY (`Disciplinas_Codigo` , `Disciplinas_Periodo_Ano`)
         REFERENCES `mydb`.`Disciplinas` (`Codigo` , `Periodo_Ano`)
         ON DELETE NO ACTION ON UPDATE NO ACTION,
     FOREIGN KEY (`Turma_Local`)
         REFERENCES `mydb`.`Turma` (`Local`)
         ON DELETE NO ACTION ON UPDATE NO ACTION,
-    FOREIGN KEY (`Professor_ID_Professor` , `Professor_Funcionario_Matricula` , `Professor_Funcionario_Dependente_CPF`)
-        REFERENCES `mydb`.`Professor` (`ID_Professor` , `Funcionario_Matricula` , `Funcionario_Dependente_CPF`)
+    FOREIGN KEY (`Professor_ID_Professor` , `Professor_Funcionario_Matricula`)
+        REFERENCES `mydb`.`Professor` (`ID_Professor` , `Funcionario_Matricula`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
 );
