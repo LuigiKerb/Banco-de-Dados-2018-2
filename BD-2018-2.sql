@@ -129,13 +129,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Curso` (
         ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 -- -----------------------------------------------------
--- Table `mydb`.`Turma`
+-- Table `mydb`.`Turma` ADICIONAR CHAVE ESTRANGEIRA DE INSERÇÃO 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Turma` (
     `Local` VARCHAR(30) NOT NULL,
     `Dia` DATE NULL,
     `Horario` INT NULL,
-    PRIMARY KEY (`Local`)
+    PRIMARY KEY (`Local`),
+    foreign key `mydb`.(``)
+    ON DELETE NO ACTION ON UPDATE NO ACTION,
+    references`mydb`.
 );
 -- -----------------------------------------------------
 -- Table `mydb`.`Matriculado`
