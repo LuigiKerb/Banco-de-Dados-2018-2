@@ -120,6 +120,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Disciplinas` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Curso` (
     `ID_Curso` INT NOT NULL,
+    `Nome_Curso` varchar(35),
     `Aluno_Matricula_Aluno` INT,
     `Instituto_idInstituto` INT,
     `Disciplinas_Codigo` VARCHAR(6),

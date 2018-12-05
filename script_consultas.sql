@@ -2,20 +2,21 @@
 -- 1. Lista dos Cursos da UFV-CRP
 -- -----------------------------------------------------
 SELECT 
-    nome_curso
+   Nome_Curso
 FROM
     Curso;
 -- -----------------------------------------------------
 -- 2. Lista dos Cursos, por Instituto
 -- -----------------------------------------------------
 SELECT 
-    c.nome_curso AS 'Curso', i.nome AS 'Instituto'
+    c.Nome_Curso AS 'Curso', i.TipoInstituto AS 'Instituto'
 FROM
-    curso c
+    Curso c
         JOIN
-    instituto i
+    Instituto i
 WHERE
     instituto_idInstituto = idInstituto
+group by instituto
 ORDER BY instituto_idInstituto;
  
 -- -----------------------------------------------------
