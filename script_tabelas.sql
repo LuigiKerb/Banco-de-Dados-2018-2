@@ -189,9 +189,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Conclui` (
         ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 -- -----------------------------------------------------
--- Table `mydb`.`pre-requisito`
+-- Table `mydb`.`pre_requisito` pra que serve o Disciplinas_Codigo1?
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`pre-requisito` (
+CREATE TABLE IF NOT EXISTS `mydb`.`pre_requisito` (
     `Disciplinas_Codigo` VARCHAR(6) NOT NULL,
     `Disciplinas_Codigo1` VARCHAR(6) NOT NULL,
     `Disciplina_Pre` VARCHAR(45),

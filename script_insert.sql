@@ -95,7 +95,7 @@ values
 ('SIN496', 'Atividades Complementares','0','0','12','3'),
 ('SIN499', 'Trabalho de Conclusão de Curso II', '0','0','14','3');
 
-insert into prerequisito
+insert into pre_requisito
 (`Disciplinas_Codigo`,`Disciplina_Pre`)
 values
 ( 'CRP192','CRP191, CRP199'),
