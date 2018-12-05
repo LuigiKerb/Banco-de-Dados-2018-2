@@ -226,47 +226,26 @@ values
 
 
 insert into Funcionario
-(`idFuncionario`,`nome`,`atua`,`area`)
+(`Matricula`,`idCargo_Funcionario`,`Nome`,`atua`,`area`,`Email`,`Sexo`,`CPF`,`RG`,`UF`,
+`OrgaoExpedidor`,)
 values
-(default,'Adriana Zanella Martinhago','professor','Sistemas de Informação e Banco de Dados'),
-(default,'Clausius Duque Gonçalves Reis','professor','Arquitetura de computadores'),
-(default,'Guilherme de Castro Pena','professor','Algoritmos, Estruturas de Dados e Pesquisa Operacional'),
-(default,'Guilherme Mendonça Freire','professor','Engenharia de Software'),
-(default,'Íris Fabiana de Barcelos Tronto','professor','Engenharia de Software'),
-(default,'João Fernando Mari','professor','Processamento de Imagem e Computação Grafica'),
-(default,'Liziane Santos Soares','professor','Engenharia de Software'),
-(default,'Matheus Nohra Haddad','professor','Otimização Combinatoria'),
-(default,'Pablo Luiz Araújo Munhoz','professor','Pesquisa Operacional'),
-(default,'Pedro Moises de Sousa','professor','Sistemas inteligentes, Mineração de dados'),
-(default,'Rachel Carlos Duque Reis','professor','Programação de Computadores'),
-(default,'Rodrigo Smarzaro da Silva','professor','Sistemas de Informação e Banco de Dados'),
-(default,'Joelson Antônio dos Santos','professor','Aprendizado de Maquina'),
-(default,'João Batista Ribeiro','professor','Programação de Computadores e Redes de Computadores'),
-(default,'Larissa Ferreira Rodrigues','professor','Aprendizado de maquina e Processamento de Imagem'),
-(default,'Leandro Henrique Furtado Pinto Silva','professor','Engenharia de Software'),
-(default,'Henrique Peluzio','tecnico','Analista de sistemas'),
-(default,'Seu João','tecnico','jardineiro');
-
-insert into cargo
-(funcionario_idFuncionario,cargo_idCargo)
-values
-(1,3),
-(2,2),
-(3,1),
-(4,3),
-(5,2),
-(6,2),
-(7,1),
-(8,3),
-(9,2),
-(10,3),
-(11,1),
-(12,2),
-(13,3),
-(14,1),
-(15,2),
-(16,2),
-(17,1);
+(default,'3','Adriana Zanella Martinhago','professor','Sistemas de Informação e Banco de Dados'),
+(default,'3','Clausius Duque Gonçalves Reis','professor','Arquitetura de computadores'),
+(default,'2','Guilherme de Castro Pena','professor','Algoritmos, Estruturas de Dados e Pesquisa Operacional'),
+(default,'2','Guilherme Mendonça Freire','professor','Engenharia de Software'),
+(default,'1','Íris Fabiana de Barcelos Tronto','professor','Engenharia de Software'),
+(default,'2','João Fernando Mari','professor','Processamento de Imagem e Computação Grafica'),
+(default,'3','Liziane Santos Soares','professor','Engenharia de Software'),
+(default,'2','Matheus Nohra Haddad','professor','Otimização Combinatoria'),
+(default,'3','Pablo Luiz Araújo Munhoz','professor','Pesquisa Operacional'),
+(default,'1','Pedro Moises de Sousa','professor','Sistemas inteligentes, Mineração de dados'),
+(default,'2','Rachel Carlos Duque Reis','professor','Programação de Computadores'),
+(default,'3','Rodrigo Smarzaro da Silva','professor','Sistemas de Informação e Banco de Dados'),
+(default,'2','Joelson Antônio dos Santos','professor','Aprendizado de Maquina'),
+(default,'1','João Batista Ribeiro','professor','Programação de Computadores e Redes de Computadores'),
+(default,'3','Larissa Ferreira Rodrigues','professor','Aprendizado de maquina e Processamento de Imagem'),
+(default,'2','Leandro Henrique Furtado Pinto Silva','professor','Engenharia de Software'),
+(default,'3','Henrique Peluzio','tecnico','Analista de sistemas');
 
 insert into registro
 (funcionario_idFuncionario,email,sexo,cpf,identidade,UFidentidade,orgaoExpedidor,

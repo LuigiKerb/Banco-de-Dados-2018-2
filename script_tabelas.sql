@@ -26,8 +26,10 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Dependente` (
 -- Table `mydb`.`Funcionario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Funcionario` (
-    `Matricula` INT NOT NULL,
+    `Matricula` INT NOT NULL auto_increment,
     `idCargo_Funcionario` int,
+    `Email` varchar(45),
+    `Sexo` enum('M','F'),
     `Dependente_CPF` INT,
     `Nome` VARCHAR(45),
     `CPF` INT NOT NULL,
