@@ -227,9 +227,10 @@ values
 
 insert into Funcionario
 (`Matricula`,`idCargo_Funcionario`,`Nome`,`atua`,`area`,`Email`,`Sexo`,`CPF`,`RG`,`UF`,
-`OrgaoExpedidor`,)
+`OrgaoExpedidor`,`Nascimento`,)
 values
-(default,'3','Adriana Zanella Martinhago','professor','Sistemas de Informação e Banco de Dados'),
+(default,'3','Adriana Zanella Martinhago','professor','Sistemas de Informação e Banco de Dados',
+'adriana.martinhago@ufv.br','F','517077638','517077638','MG','SSP','1988/05/15','3438559325'),
 (default,'3','Clausius Duque Gonçalves Reis','professor','Arquitetura de computadores'),
 (default,'2','Guilherme de Castro Pena','professor','Algoritmos, Estruturas de Dados e Pesquisa Operacional'),
 (default,'2','Guilherme Mendonça Freire','professor','Engenharia de Software'),
@@ -251,40 +252,39 @@ insert into registro
 (funcionario_idFuncionario,email,sexo,cpf,identidade,UFidentidade,orgaoExpedidor,
 DataNascimento,cidade,cep,telefone)
 values
-(1,'adriana.martinhago@ufv.br','F','517077638','517077638','MG','SSP','1988/05/15',
-'Rio Paranaiba','3844000','3438559325'),
+(1,),
 (2,'clausius@ufv.br','M','674830714','243941985','MG','SSP','1989/02/19',
-'Rio Paranaiba','3844000','3438265593'),
+'3438265593'),
 (3,'guilherme.pena@ufv.br','M','463851016','202021592','MG','SSP','1987/06/15',
-'Rio Paranaiba','3844000','3438559356'),
+'3438559356'),
 (4,'guilhermemfreire@ufv.br','M','364845533','203094803','MG','SSP','1975/12/09',
-'Rio Paranaiba','3844000','34385593530'),
+'34385593530'),
 (5,'irisbarcelos@ufv.br','F','650084502','468565152','MG','SSP','1972/8/21',
-'Rio Paranaiba','3844000','3438559350'),
+'3438559350'),
 (6,'joaofmari@gmail.com','M','147327909','374797523','MG','SSP','1987/10/11',
-'Rio Paranaiba','3844000','3438559350'),
+'3438559350'),
 (7,'liziane.soares@ufv.br','F','244873569','263898246','MG','SSP','1958/8/14',
-'Rio Paranaiba','3844000','3438559350'),
+'3438559350'),
 (8,'mathaddad@gmail.com','M','193500281','500148958','MG','SSP','1985/12/22',
-'Rio Paranaiba','3844000','3438559350'),
+'3438559350'),
 (9,'pablo.munhoz@ufv.br','M','926367135','183929913','MG','SSP',' 1974/2/2',
-'Rio Paranaiba','3844000','3438559350'),
+'3438559350'),
 (10,'pedromoises@ufv.br','M','358075510','492982004','MG','SSP','1956/6/16',
-'Rio Paranaiba','3844000','3438559350'),
+'3438559350'),
 (11,'rachel.reis@ufv.br','F','557542164','404749513','MG','SSP','1970/12/27',
-'Rio Paranaiba','3844000','3438559350'),
+'3438559350'),
 (12,'smarzaro@ufv.br','M','804995909','376233643','MG','SSP','1970/10/6',
-'Rio Paranaiba','3844000','3438559350'),
+'3438559350'),
 (13,'joelsonn.santos@gmail.com','M','656447916','260190731','MG','SSP','1970/5/29',
-'Rio Paranaiba','3844000','343855935'),
+'343855935'),
 (14,'joao42lbatista@gmail.com','M','047773202','444630442','MG','SSP','1988/2/25',
-'Rio Paranaiba','3844000','343559350'),
+'343559350'),
 (15,'larissa.f.rodrigues@ufv.br','F','265314921','469713823','MG','SSP','1981/5/24',
-'Rio Paranaiba','3844000','343855935'),
+'343855935'),
 (16,'leandro.pinto@ufv.br','M','560122233','355680543','MG','SSP','1970/8/11',
-'Rio Paranaiba','3844000','438559350'),
+'438559350'),
 (17,'hpeluzio@gmail.com','M','120013858','406869194','MG','SSP','1982/8/19',
-'Rio Paranaiba','3844000','3438559350');
+'3438559350');
 
 
 insert into aluno

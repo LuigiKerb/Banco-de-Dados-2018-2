@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Funcionario` (
     `idCargo_Funcionario` int,
     `Email` varchar(45),
     `Sexo` enum('M','F'),
+    `Nascimento` date,
     `Dependente_CPF` INT,
     `Nome` VARCHAR(45),
     `CPF` INT NOT NULL,
