@@ -142,16 +142,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Curso` (
 CREATE TABLE IF NOT EXISTS `mydb`.`Turma` (
     `Local` VARCHAR(30) NOT NULL,
     `Dia` ENUM('Segunda', 'Terca', 'Quarta', 'Quinta', 'Sexta'),
-    `Horario` VARCHAR(5) DEFAULT '00:00',
-    `Curso_ID_Curso` INT not null,
-    `Curso_Disciplinas_Codigo` VARCHAR(6),
+    `Horario` VARCHAR(5) DEFAULT '00-00',
+    `Curso_ID_Curso` varchar(6) not null,
     `Periodo_Ano` INT,
     PRIMARY KEY (`Local`),
     FOREIGN KEY (`Curso_ID_Curso`)
         REFERENCES `mydb`.`Curso` (`ID_Curso`)
-        ON DELETE NO ACTION ON UPDATE NO ACTION,
-     FOREIGN KEY (`Curso_Disciplinas_Codigo`)
-        REFERENCES `mydb`.`Curso` (`Disciplinas_Codigo`)
         ON DELETE NO ACTION ON UPDATE NO ACTION,
     FOREIGN KEY (`Periodo_Ano`)
       REFERENCES `mydb`.`Periodo` (`Ano`)
