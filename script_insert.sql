@@ -288,20 +288,20 @@ values
 
 
 insert into Aluno
-(`Matricula_Aluno`,`Nome`,`curso_idCurso`,`entrada_curso`,`escola2oGrau`, `CPF`)
+(`Matricula_Aluno`,`Nome`,`curso_idCurso`,`entrada_curso`,`escola2oGrau`, `CPF`, `email`, `Sexo`)
 values
-(default,'Matheus Dias',10,2014,'Jose Hugo', '11210428644'),
-(default,'Luigi Miranda',10,2014,'Jose Hugo', '13654286640'),
-(default,'Tiemy Shibuya',10,2014,'Jose Hugo', '02211922635'),
-(default,'José Costa',10,2012,'Don Vito', '123456789'),
-(default,'Vinícius Rodrigues',10,2017,'Carlo', '123456666'),
-(default,'Fernanda Maximus',10,2014,'Bonesera', '123456777'),
-(default,'Giovanna Marques',10,2015,'Luca', '123455555'),
-(default,'Nicolas Campos',10,2012,'Jack', '1234562222'),
-(default,'Bernardo Boaventura',10,2015,'Tom Hagen', '1234561111'),
-(default,'Emanuela Amaral',10,2011,'Sollozo', '123456333'),
-(default,'Agnes Menezzes',10,2015,'Tattaglia', '123456444'),
-(default,'Wilian Mello',10,2018,'Sonny', '123456456');
+(default,'Matheus Dias',10,2014,'Jose Hugo', '11210428644', 'matheusd@ufv.br', 'M'),
+(default,'Luigi Miranda',10,2014,'Jose Hugo', '13654286640', 'luigi.miranda@ufv.br', 'M'),
+(default,'Tiemy Shibuya',10,2014,'Jose Hugo', '02211922635', 'tiemy.watanabe@ufv.br', 'F'),
+(default,'José Costa',10,2012,'Don Vito', '123456789','jose.costa@ufv.br', 'M'),
+(default,'Vinícius Rodrigues',10,2017,'Carlo', '123456666','vini.rodrigues@ufv.br', 'M'),
+(default,'Fernanda Maximus',10,2014,'Bonesera', '123456777', 'fernanda.maximus@ufv.br', 'F'),
+(default,'Giovanna Marques',10,2015,'Luca', '123455555', 'giovanna.marques@ufv.br', 'F'),
+(default,'Nicolas Campos',10,2012,'Jack', '1234562222', 'nicolas.campos@ufv.br', 'M'),
+(default,'Bernardo Boaventura',10,2015,'Tom Hagen', '1234561111', 'bernardo.boaventura@ufv.br', 'M'),
+(default,'Emanuela Amaral',10,2011,'Sollozo', '123456333', 'emanuela.amaral@ufv.br', 'F'),
+(default,'Agnes Menezzes',10,2015,'Tattaglia', '123456444', 'agnes.menezzes@ufv.br', 'F'),
+(default,'Wilian Mello',10,2018,'Sonny', '123456456', 'willian.mello@ufv.br', 'M');
 
 insert into registro
 (`aluno_matricula`,`email`,`sexo`,`cpf`,`identidade`,`UFidentidade`,`orgaoExpedidor`,
