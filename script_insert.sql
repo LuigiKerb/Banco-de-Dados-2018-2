@@ -55,7 +55,7 @@ insert into Cargo values
     ('27', 'Secretaria Acadêmica');
 
 insert into Disciplinas
-(`Codigo`,`Nome`,`Créditos`,`CargaHoraria_Teorica`,`CargaHoraria_Pratica`,`Periodo_Ano`)
+(`Codigo`,`Nome`,`Creditos`,`CargaHoraria_Teorica`,`CargaHoraria_Pratica`,`Periodo_Ano`)
 values
 ('CRP199','Calculo Diferencial e Integral',4,'4','0','3'),
 ('CRP297','Sociologia Geral',4,'4','0','3'),
