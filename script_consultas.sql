@@ -24,10 +24,10 @@ ORDER BY instituto_idInstituto;
 -- oferecidas
 -- -----------------------------------------------------
 SELECT 
-    nome_discipilina AS 'Disciplina',
+    d.Nome AS 'Disciplina',
     semestreOfertado AS 'Semestre Ofertado'
 FROM
-    disciplina d
+    Disciplinas d
         JOIN
     disciplina_has_curso dc
 WHERE
@@ -64,12 +64,12 @@ ORDER BY curso_idCurso;
 -- 6. Lista das disciplinas e seus pré-requisitos
 -- -----------------------------------------------------
 SELECT 
-    d.nome_disciplina AS 'Disciplina',
+    d.Nome AS 'Disciplina',
     p.nomePrerequisito AS 'Prerequisito'
 FROM
-    disciplina d
+    Disciplinas d
         JOIN
-    prerequisito
+    pre_requisito
 WHERE
     idDisciplina = disciplina_idDisciplina;
 -- -----------------------------------------------------
@@ -80,7 +80,7 @@ SELECT
 FROM
     Aluno AS A
         JOIN
-    Disciplina AS D
+    Disciplinas AS D
         JOIN
     Periodo AS P ON P.Ano = D.Periodo_Ano
         AND A.Matricula_A = D.Aluno_Matricula_A
@@ -90,6 +90,11 @@ WHERE
 -- 8. Lista de disciplinas e respectivos períodos em que foi cursada e resultados para um
 -- determinado aluno (como se fosse o histórico escolar)
 -- -----------------------------------------------------
+SELECT
+	a.Nome, d.Nome
+FROM Aluno AS a
+		JOIN
+	Disciplinas AS d;
 
 -- -----------------------------------------------------
 -- 9. Lista de disciplinas obrigatórias que um determinado aluno ainda falta fazer
@@ -97,8 +102,8 @@ WHERE
 SELECT 
     d.Nome
 FROM
-    Disciplina AS d,
-    matriculado AS m,
+    Disciplinas AS d,
+    Matriculado AS m,
     Conclui AS c
 WHERE
     d.status = ‘obrigatória’
