@@ -328,23 +328,3 @@ values
 (default,'Wilian Mello',10,2018,'Sonny', '123456456', 'willian.mello@ufv.br', 'M','294854459','PE','SSP','1994/06/06',
 'Recife','50000000','819642161');
 
-insert into registro
-(`aluno_matricula`,`email`,`sexo`,`cpf`,`identidade`,`UFidentidade`,`orgaoExpedidor`,
-`DataNascimento`,`cidade`,`cep`,`telefone`)
-values
- (1,'matheusd@ufv.br','M','11210428644'),
-
-(2,'josecosta@ufv.br','M','81905697406'),
-
-(3,'viniciusrodrigues@ufv.br','M','66612931108'),
-
-(4,'fernandamaximus@ufv.br','F'),
-
-(5,'giovanamarques@ufv.br','F'),
-
-(6,'nicolascampos@ufv.br','M'),
-(7,'bernardoboaventura@ufv.br'),
-(8,'emanuela.amaral@ufv.br','F','56560716341'),
-(9,'agnesmenezzes@ufv.br','F','38291391440'),
-(10,'heitormello@ufv.br','M','42671546351');
-
