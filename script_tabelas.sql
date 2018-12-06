@@ -33,9 +33,14 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Funcionario` (
     `Nascimento` date,
     `Dependente_CPF` INT,
     `Nome` VARCHAR(45),
+    `RG` VARCHAR(45),
+	`UF` VARCHAR(2),
+    `OrgaoExpedidor` VARCHAR(5),
     `CPF` INT NOT NULL,
     `Endereco` VARCHAR(45),
     `Telefone` VARCHAR(45),
+    `atua` ENUM('professor', 'tecnico'),
+    `area` VARCHAR(45),  
     PRIMARY KEY (`Matricula`),
     FOREIGN KEY (`Dependente_CPF`)
         REFERENCES `mydb`.`Dependente` (`CPF`)
