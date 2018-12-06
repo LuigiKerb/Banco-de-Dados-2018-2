@@ -106,7 +106,7 @@ FROM
     Matriculado AS m,
     Conclui AS c
 WHERE
-    d.status = 'obrigatória'
+    d.Status_da_Disciplina = 'obrigatoria'
         AND c.Disciplinas_Codigo <> d.Codigo
         AND m.Disciplina_codigo <> d.Codigo
 -- -----------------------------------------------------
