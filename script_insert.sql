@@ -1,27 +1,29 @@
 SET FOREIGN_KEY_CHECKS=0;
 
-insert into Instituto values
-	('1', 'Agrarias'),
-	('2', 'Engenharias'),
-	('3', 'Biologicas'),
-	('4', 'Exatas e da terra'),
-	('5', 'Humanas'), 
-	('6', 'Sociais e aplicadas'),
-	('7', 'Saude');
+insert into Instituto
+(`idInstituto`,`TipoInstituto`)
+values
+	(1, 'Agrarias'),
+	(2, 'Engenharias'),
+	(3, 'Biologicas'),
+	(4, 'Exatas e da terra'),
+	(5, 'Humanas'), 
+	(6, 'Sociais e aplicadas'),
+	(7, 'Saude');
 
 insert into Curso
 (`ID_Curso`,`Instituto_idInstituto`,`Nome_Curso`)
  values
-	(1,'6','Administração'),
-    (3,'1','Agronomia'),
-    (4,'3','Ciências Biologicas'),
-    (5,'3','Ciência de Alimentos'),
-    (6,'2','Engenharia Civil'),
-    (7,'2','Engenharia de Produção'),
-    (8,'7','Nutrição'),
-    (9,'4','Quimica'),
-    (10,'4','Sistemas de Informação'),
-    (12,'6','Ciências Contabeis');
+	(1,6,'Administração'),
+    (3,1,'Agronomia'),
+    (4,3,'Ciências Biologicas'),
+    (5,3,'Ciência de Alimentos'),
+    (6,2,'Engenharia Civil'),
+    (7,2,'Engenharia de Produção'),
+    (8,7,'Nutrição'),
+    (9,4,'Quimica'),
+    (10,4,'Sistemas de Informação'),
+    (12,6,'Ciências Contabeis');
   
 insert into Cargo values
 	('1', 'Professor Especialista'),
