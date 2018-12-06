@@ -84,7 +84,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Aluno` (
     `Endereco` VARCHAR(45),
     `Telefone` VARCHAR(11),
     `Titulo_Eleitor` INT,
+    `escola2oGrau` VARCHAR(45),
+    `entrada_curso` VARCHAR(4),
     `email` VARCHAR(45),
+    `identidade` VARCHAR(9),
+    `UFidentidade` VARCHAR(2),
+    `orgaoExpedidor` VARCHAR(5),
+	`DataNascimento` DATE,
+	`cidade` VARCHAR(45),
+    `cep` VARCHAR(8),
+    `telefone`VARCHAR(12),
     PRIMARY KEY (`Matricula_Aluno`)
 );
 -- -----------------------------------------------------

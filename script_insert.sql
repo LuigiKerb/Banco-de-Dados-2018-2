@@ -302,48 +302,49 @@ values
 
 
 insert into Aluno
-(`Matricula_Aluno`,`Nome`,`curso_idCurso`,`entrada_curso`,`escola2oGrau`, `CPF`, `email`, `Sexo`)
+(`Matricula_Aluno`,`Nome`,`curso_idCurso`,`entrada_curso`,`escola2oGrau`, `CPF`, `email`, `Sexo`,`identidade`,`UFidentidade`,`orgaoExpedidor`,
+`DataNascimento`,`cidade`,`cep`,`telefone`)
 values
-(default,'Matheus Dias',10,2014,'Jose Hugo', '11210428644', 'matheusd@ufv.br', 'M'),
-(default,'Luigi Miranda',10,2014,'Jose Hugo', '13654286640', 'luigi.miranda@ufv.br', 'M'),
-(default,'Tiemy Shibuya',10,2014,'Jose Hugo', '02211922635', 'tiemy.watanabe@ufv.br', 'F'),
-(default,'José Costa',10,2012,'Don Vito', '123456789','jose.costa@ufv.br', 'M'),
-(default,'Vinícius Rodrigues',10,2017,'Carlo', '123456666','vini.rodrigues@ufv.br', 'M'),
-(default,'Fernanda Maximus',10,2014,'Bonesera', '123456777', 'fernanda.maximus@ufv.br', 'F'),
-(default,'Giovanna Marques',10,2015,'Luca', '123455555', 'giovanna.marques@ufv.br', 'F'),
-(default,'Nicolas Campos',10,2012,'Jack', '1234562222', 'nicolas.campos@ufv.br', 'M'),
-(default,'Bernardo Boaventura',10,2015,'Tom Hagen', '1234561111', 'bernardo.boaventura@ufv.br', 'M'),
-(default,'Emanuela Amaral',10,2011,'Sollozo', '123456333', 'emanuela.amaral@ufv.br', 'F'),
-(default,'Agnes Menezzes',10,2015,'Tattaglia', '123456444', 'agnes.menezzes@ufv.br', 'F'),
-(default,'Wilian Mello',10,2018,'Sonny', '123456456', 'willian.mello@ufv.br', 'M');
+(default,'Matheus Dias',10,2014,'Jose Hugo', '11210428644', 'matheusd@ufv.br', 'M','123456789','MG','SSP','1996/05/08',
+ 'Carmo do Paranaiba','38840000','99796233'),
+(default,'Luigi Miranda',10,2014,'Jose Hugo', '13654286640', 'luigi.miranda@ufv.br', 'M','18788863', 'MG', 'SSP', '1997/10/16', 'Barbacena', '36202282', '32987079119'),
+(default,'Tiemy Shibuya',10,2014,'Jose Hugo', '02211922635', 'tiemy.watanabe@ufv.br', 'F','181074223', 'MG', 'SSP', '1997/09/26', 'Montes Claros', '38110000', '34999178494'),
+(default,'José Costa',10,2012,'Don Vito', '123456789','jose.costa@ufv.br', 'M','483710027','MS','SSP','1990/12/07',
+'agua Clara','79680000','9587632564'),
+(default,'Vinícius Rodrigues',10,2017,'Carlo', '123456666','vini.rodrigues@ufv.br', 'M','467466269','PR','SSP','1999/06/07',
+'Cornélio Procopio','86300000','439524581'),
+(default,'Fernanda Maximus',10,2014,'Bonesera', '123456777', 'fernanda.maximus@ufv.br', 'F','20903006715','256115687','PA','SSP','1991/07/05',
+'Belem','66999000','9198229682'),
+(default,'Giovanna Marques',10,2015,'Luca', '123455555', 'giovanna.marques@ufv.br', 'F','24360782977','110336793','PR','SSP','1997/08/01',
+'Curitiba','82999000','419320289'),
+(default,'Nicolas Campos',10,2012,'Jack', '1234562222', 'nicolas.campos@ufv.br', 'M','10627663427','337310026','PR','SSP','1991/11/07',
+'Curitiba','82999000','4192700778'),
+(default,'Bernardo Boaventura',10,2015,'Tom Hagen', '1234561111', 'bernardo.boaventura@ufv.br', 'M','110336793','MS','SSP','1991/06/01',
+'agua Clara','79680000','679185563'),
+(default,'Emanuela Amaral',10,2011,'Sollozo', '123456333', 'emanuela.amaral@ufv.br', 'F','468238992','MG','SSP','1992/07/05',
+'Belo Horizonte','30000000','3197759849'),
+(default,'Agnes Menezzes',10,2015,'Tattaglia', '123456444', 'agnes.menezzes@ufv.br', 'F','468238992','MG','SSP','1997/02/11',
+'Belo Horizonte','30000000','319683413'),
+(default,'Wilian Mello',10,2018,'Sonny', '123456456', 'willian.mello@ufv.br', 'M','294854459','PE','SSP','1994/06/06',
+'Recife','50000000','819642161');
 
 insert into registro
 (`aluno_matricula`,`email`,`sexo`,`cpf`,`identidade`,`UFidentidade`,`orgaoExpedidor`,
 `DataNascimento`,`cidade`,`cep`,`telefone`)
 values
- (1,'matheusd@ufv.br','M','11210428644','123456789','MG','SSP','1996/05/08',
- 'Carmo do Paranaiba','38840000','99796233'),
+ (1,'matheusd@ufv.br','M','11210428644'),
 
-(2,'josecosta@ufv.br','M','81905697406','483710027','MS','SSP','1990/12/07',
-'agua Clara','79680000','9587632564'),
+(2,'josecosta@ufv.br','M','81905697406'),
 
-(3,'viniciusrodrigues@ufv.br','M','66612931108','467466269','PR','SSP','1999/06/07',
-'Cornélio Procopio','86300000','439524581'),
+(3,'viniciusrodrigues@ufv.br','M','66612931108'),
 
-(4,'fernandamaximus@ufv.br','F','20903006715','256115687','PA','SSP','1991/07/05',
-'Belem','66999000','9198229682'),
+(4,'fernandamaximus@ufv.br','F'),
 
-(5,'giovanamarques@ufv.br','F','24360782977','110336793','PR','SSP','1997/08/01',
-'Curitiba','82999000','419320289'),
+(5,'giovanamarques@ufv.br','F'),
 
-(6,'nicolascampos@ufv.br','M','10627663427','337310026','PR','SSP','1991/11/07',
-'Curitiba','82999000','4192700778'),
-(7,'bernardoboaventura@ufv.br','M','98981048487','110336793','MS','SSP','1991/06/01',
-'agua Clara','79680000','679185563'),
-(8,'emanuela.amaral@ufv.br','F','56560716341','468238992','MG','SSP','1992/07/05',
-'Belo Horizonte','30000000','3197759849'),
-(9,'agnesmenezzes@ufv.br','F','38291391440','468238992','MG','SSP','1997/02/11',
-'Belo Horizonte','30000000','319683413'),
-(10,'heitormello@ufv.br','M','42671546351','294854459','PE','SSP','1994/06/06',
-'Recife','50000000','819642161');
+(6,'nicolascampos@ufv.br','M'),
+(7,'bernardoboaventura@ufv.br'),
+(8,'emanuela.amaral@ufv.br','F','56560716341'),
+(9,'agnesmenezzes@ufv.br','F','38291391440'),
+(10,'heitormello@ufv.br','M','42671546351');
 
