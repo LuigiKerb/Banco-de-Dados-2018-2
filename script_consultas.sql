@@ -41,11 +41,11 @@ ORDER BY semestreOfertado;
 SELECT 
     nome AS 'Professor'
 FROM
-    funcionario
+    Funcionario
         JOIN
-    cargo
+    Cargo
 WHERE
-    atua = 'professor'
+    Atua = 'professor'
         AND cargo_idCargo IN (1 , 2, 3);
 -- -----------------------------------------------------
 -- 5. Lista de alunos, por curso, contendo matrícula, nome, email e ano de entrada na
