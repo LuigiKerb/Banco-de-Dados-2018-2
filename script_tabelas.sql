@@ -82,7 +82,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Aluno` (
     `Data_Nascimento` DATE,
     `Sexo` ENUM('M', 'F'),
     `Endereco` VARCHAR(45),
-    `Telefone` VARCHAR(11),
     `Titulo_Eleitor` INT,
     `escola2oGrau` VARCHAR(45),
     `entrada_curso` VARCHAR(4),
