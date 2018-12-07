@@ -8,16 +8,10 @@ FROM
 -- -----------------------------------------------------
 -- 2. Lista dos Cursos, por Instituto
 -- -----------------------------------------------------
-SELECT 
-    c.Nome_Curso AS 'Curso', i.TipoInstituto AS 'Instituto'
-FROM
-    Curso c
-        JOIN
-    Instituto i
-WHERE
-    instituto_idInstituto = idInstituto
-group by instituto
-ORDER BY instituto_idInstituto;
+SELECT Nome_Curso as 'Curso'
+from Curso join Instituto on idInstituto = Instituto_idInstituto
+group by Instituto_idInstituto;
+
  
 -- -----------------------------------------------------
 -- 3. Lista das disciplinas obrigatórias de um curso ordenadas pelo período em que são

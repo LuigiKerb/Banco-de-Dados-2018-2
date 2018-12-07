@@ -55,46 +55,46 @@ insert into Cargo values
     ('27', 'Secretaria Acadêmica');
 
 insert into Disciplinas
-(`Codigo`,`Nome`,`Creditos`,`CargaHoraria_Teorica`,`CargaHoraria_Pratica`,`Periodo_Ano`,`Status_da_Disciplina`)
+(`idDisciplina`,`Nome`,`Creditos`,`CargaHoraria_Teorica`,`CargaHoraria_Pratica`,`semestreOfertado`,`Status_da_Disciplina`)
 values
-('CRP199', 'Calculo Diferencial e Integral','4','4','0','3','obrigatoria'),
-('CRP297', 'Sociologia Geral','4','4','0','3','obrigatoria'),
-('SIN110', 'Programação','6','4','2','3','obrigatoria'),
-('SIN130', 'Introdução a logica','4','4','0','1','obrigatoria'),
-('CRP192', 'Iniciação à Estatística','4','4','0','3','obrigatoria'),
-('CRP298', 'Geometria Analítica e algebra Linear','4','4','0','3','obrigatoria'),
-('SIN100', 'Tratamento e Analise de Dados/Informações','4','4', '0','2','obrigatoria'),
-('SIN101', 'Informatica e Sociedade', '2','2','0','2','obrigatoria'),
-('SIN211', 'Algoritmos e Estruturas de Dados','6','4','2','2','obrigatoria'),
-('CRP291', 'Inglês I','4','4','0','3','obrigatoria'),
-('SIN132', 'Matematica Discreta','4','0','4','1','obrigatoria'),
-('SIN141', 'Computação Orientada a Objetos','4','4','0','2','obrigatoria'),
-('SIN222', 'Fundamentos de Sistemas de Informação','4','4','0','2','obrigatoria'),
-('SIN251', 'Organização de Computadores','4','4','0','2','obrigatoria'),
-('SIN142', 'Programação Concorrente e Distribuída','2','2','0','2','obrigatoria'),
-('SIN213', 'Projeto de Algoritmos','6','4','2','2','obrigatoria'),
-('SIN220', 'Banco de Dados','4','4','0','2','obrigatoria'),
-('SIN221', 'Engenharia de Software I','4','4','0','2','obrigatoria'),
-('SIN252', 'Arquitetura de Computadores','4','4','0','2','obrigatoria'),
-('SIN131', 'Introdução à Teoria da Computação','4','4','0','1','obrigatoria'),
-('SIN143', 'Laboratorio de Programação','4','2','2','1','obrigatoria'),
-('SIN320', 'Laboratorio de Banco de Dados','4','2','2','1','obrigatoria'),
-('SIN321', 'Engenharia de Software II','4','4','0','1','obrigatoria'),
-('SIN351', 'Sistemas Operacionais','4','4','0','1','obrigatoria'),
-('ADE104', 'Teoria Geral da Administração', '4', '4','0','3','obrigatoria'),
-('SIN322', 'Pratica de Gerenciamento de Projetos', '2', '2', '0','2','obrigatoria'),
-('SIN323', 'Inteligência Artificial','4', '4', '0','2','obrigatoria'),
-('SIN352', 'Redes de Computadores', '6', '4', '2','2','obrigatoria'),
-('SIN421', 'Interação Humano Computador', '4','4','0','2','obrigatoria'),
-('ADE190', 'Introdução à Economia','4','4','0','3','obrigatoria'),
-('ADE345', 'Comportamento Organizacional','4','4','0','3','obrigatoria'),
-('SIN392', 'Introdução ao Processamento Digital de Imagens','4','4','0','1','obrigatoria'),
-('SIN498', 'Trabalho de Conclusão de Curso I','0', '0', '14','3','obrigatoria'),
-('ADE327', 'Empreendedorismo','4','4','0','3','obrigatoria'),
-('CIC100', 'Contabilidade Geral','4','4','0','3','obrigatoria'),
-('SIN480', 'Pesquisa Operacional I','4','4','0','2','obrigatoria'),
-('SIN496', 'Atividades Complementares','0','0','12','3','obrigatoria'),
-('SIN499', 'Trabalho de Conclusão de Curso II', '0','0','14','3','obrigatoria');
+('CRP199', 'Calculo Diferencial e Integral','4','4','0','3','Obrigatoria'),
+('CRP297', 'Sociologia Geral','4','4','0','3','Obrigatoria'),
+('SIN110', 'Programação','6','4','2','3','Obrigatoria'),
+('SIN130', 'Introdução a logica','4','4','0','1','Obrigatoria'),
+('CRP192', 'Iniciação à Estatística','4','4','0','3','Obrigatoria'),
+('CRP298', 'Geometria Analítica e algebra Linear','4','4','0','3','Obrigatoria'),
+('SIN100', 'Tratamento e Analise de Dados/Informações','4','4', '0','2','Obrigatoria'),
+('SIN101', 'Informatica e Sociedade', '2','2','0','2','Obrigatoria'),
+('SIN211', 'Algoritmos e Estruturas de Dados','6','4','2','2','Obrigatoria'),
+('CRP291', 'Inglês I','4','4','0','3','Obrigatoria'),
+('SIN132', 'Matematica Discreta','4','0','4','1','Obrigatoria'),
+('SIN141', 'Computação Orientada a Objetos','4','4','0','2','Obrigatoria'),
+('SIN222', 'Fundamentos de Sistemas de Informação','4','4','0','2','Obrigatoria'),
+('SIN251', 'Organização de Computadores','4','4','0','2','Obrigatoria'),
+('SIN142', 'Programação Concorrente e Distribuída','2','2','0','2','Obrigatoria'),
+('SIN213', 'Projeto de Algoritmos','6','4','2','2','Obrigatoria'),
+('SIN220', 'Banco de Dados','4','4','0','2','Obrigatoria'),
+('SIN221', 'Engenharia de Software I','4','4','0','2','Obrigatoria'),
+('SIN252', 'Arquitetura de Computadores','4','4','0','2','Obrigatoria'),
+('SIN131', 'Introdução à Teoria da Computação','4','4','0','1','Obrigatoria'),
+('SIN143', 'Laboratorio de Programação','4','2','2','1','Obrigatoria'),
+('SIN320', 'Laboratorio de Banco de Dados','4','2','2','1','Obrigatoria'),
+('SIN321', 'Engenharia de Software II','4','4','0','1','Obrigatoria'),
+('SIN351', 'Sistemas Operacionais','4','4','0','1','Obrigatoria'),
+('ADE104', 'Teoria Geral da Administração', '4', '4','0','3','Obrigatoria'),
+('SIN322', 'Pratica de Gerenciamento de Projetos', '2', '2', '0','2','Obrigatoria'),
+('SIN323', 'Inteligência Artificial','4', '4', '0','2','Obrigatoria'),
+('SIN352', 'Redes de Computadores', '6', '4', '2','2','Obrigatoria'),
+('SIN421', 'Interação Humano Computador', '4','4','0','2','Obrigatoria'),
+('ADE190', 'Introdução à Economia','4','4','0','3','Obrigatoria'),
+('ADE345', 'Comportamento Organizacional','4','4','0','3','Obrigatoria'),
+('SIN392', 'Introdução ao Processamento Digital de Imagens','4','4','0','1','Obrigatoria'),
+('SIN498', 'Trabalho de Conclusão de Curso I','0', '0', '14','3','Obrigatoria'),
+('ADE327', 'Empreendedorismo','4','4','0','3','Obrigatoria'),
+('CIC100', 'Contabilidade Geral','4','4','0','3','Obrigatoria'),
+('SIN480', 'Pesquisa Operacional I','4','4','0','2','Obrigatoria'),
+('SIN496', 'Atividades Complementares','0','0','12','3','Obrigatoria'),
+('SIN499', 'Trabalho de Conclusão de Curso II', '0','0','14','3','Obrigatoria');
 
 insert into pre_requisito
 (`Disciplinas_Codigo`,`Disciplina_Pre`)
@@ -121,8 +121,8 @@ values
 ( 'SIN480','SIN110'),
 ( 'SIN499','SIN498');
 
- insert into Curso
- (`ID_Curso`,`Disciplinas_Codigo`)
+ insert into disciplina_has_curso
+ (`curso_ID_Curso`,`disciplina_Codigo`)
  values
  (10,'CRP199'),(9,'CRP199'),(7,'CRP199'),(6,'CRP199'),
  (12,'CRP297'),(10,'CRP297'),(9,'CRP297'),(8,'CRP297'),(7,'CRP297'),(1,'CRP297'),
@@ -164,29 +164,29 @@ values
  (10,'SIN499');
 
 insert into Periodo
-(`Tipo_Periodo`,`periodo_idCurso`,`periodo_idDisciplina`)
+(`anoPeriodo`,`idPeriodo`,`periodo_ID_Curso`,`periodo_idDisciplina`)
 values
-(2,10,'SIN110'),
-(2,10,'SIN100'),
-(2,10,'SIN101'),
-(2,10,'SIN142'),
-(2,10,'SIN211'),
-(2,10,'SIN213'),
-(2,10,'SIN220'),
-(2,10,'SIN221'),
-(2,10,'SIN252'),
-(2,10,'SIN322'),
-(2,10,'SIN323'),
-(2,10,'SIN352'),
-(2,10,'SIN393'),
-(2,10,'SIN421'),
-(2,10,'SIN480'),
-(2,10,'SIN499'),
-(2,10,'SIN496'),
-(2,10,'SIN498');
+(2018,2,10,'SIN110'),
+(2018,2,10,'SIN100'),
+(2018,2,10,'SIN101'),
+(2018,2,10,'SIN142'),
+(2018,2,10,'SIN211'),
+(2018,2,10,'SIN213'),
+(2018,2,10,'SIN220'),
+(2018,2,10,'SIN221'),
+(2018,2,10,'SIN252'),
+(2018,2,10,'SIN322'),
+(2018,2,10,'SIN323'),
+(2018,2,10,'SIN352'),
+(2018,2,10,'SIN393'),
+(2018,2,10,'SIN421'),
+(2018,2,10,'SIN480'),
+(2018,2,10,'SIN499'),
+(2018,2,10,'SIN496'),
+(2018,2,10,'SIN498');
 
 insert into Turma
-(`Turma_Disciplinas_Codigo`,`Local`,`Tipo`,`Dia`,`Horario`)
+(`Turma_idDisciplina`,`Local`,`Tipo`,`Dia`,`Horario`)
 values
 ('SIN110','PVA101','T','Segunda','19-21'),
 ('SIN110','PVA210','T','Quarta','21-23'),
@@ -201,12 +201,12 @@ values
 ('SIN221','PVA108','T','Quinta','21-23'),
 ('SIN252','PVA230','T','Segunda','19-21'),
 ('SIN252','PVA230','T','Quinta','19-21'),
-('SIN323','PVA230','T','Quinta','19-21'),
+('SIN323','PVA230','T','Quinta','21-23'),
 ('SIN323','PVA230','T','Sexta','19-21'),
 ('SIN352','PVA227','T','Terca','21-23'),
 ('SIN352','PVA227','T','Quinta','21-23'),
 ('SIN352','PVA227','P','Sexta','19-21'),
-('SIN421','PVA230','T','Segunda','19-21'),
+('SIN421','PVA231','T','Segunda','19-21'),
 ('SIN421','PVA230','T','Quarta','21-23'),
 ('CRP199','PVA113','T','Segunda','19-21'),
 ('CRP199','PVA218','T','Quarta','21-23'),
@@ -267,8 +267,8 @@ values
 
 
 insert into Aluno
-(`Matricula_Aluno`,`Nome`,`Aluno_ID_Curso`,`entrada_curso`,`escola2oGrau`, `CPF`, `email`, `Sexo`,`identidade`,`UFidentidade`,`orgaoExpedidor`,
-`DataNascimento`,`cidade`,`cep`,`telefone`)
+(`Matricula_Aluno`,`Nome`,`Aluno_ID_Curso`,`entrada_curso`,`escola2oGrau`, `CPF`, `email`, `Sexo`,`RG`,`UFidentidade`,`orgaoExpedidor`,
+`Data_Nascimento`,`cidade`,`cep`,`telefone`)
 values
 (default,'Matheus Dias',10,2014,'Jose Hugo', '11210428644', 'matheusd@ufv.br', 'M','123456789','MG','SSP','1996/05/08',
  'Carmo do Paranaiba','38840000','99796233'),
@@ -278,11 +278,11 @@ values
 'agua Clara','79680000','9587632564'),
 (default,'Vinícius Rodrigues',10,2017,'Carlo', '123456666','vini.rodrigues@ufv.br', 'M','467466269','PR','SSP','1999/06/07',
 'Cornélio Procopio','86300000','439524581'),
-(default,'Fernanda Maximus',10,2014,'Bonesera', '123456777', 'fernanda.maximus@ufv.br', 'F','20903006715','256115687','PA','SSP','1991/07/05',
+(default,'Fernanda Maximus',10,2014,'Bonesera', '123456777', 'fernanda.maximus@ufv.br', 'F','256115687','PA','SSP','1991/07/05',
 'Belem','66999000','9198229682'),
-(default,'Giovanna Marques',10,2015,'Luca', '123455555', 'giovanna.marques@ufv.br', 'F','24360782977','110336793','PR','SSP','1997/08/01',
+(default,'Giovanna Marques',10,2015,'Luca', '123455555', 'giovanna.marques@ufv.br', 'F','110336793','PR','SSP','1997/08/01',
 'Curitiba','82999000','419320289'),
-(default,'Nicolas Campos',10,2012,'Jack', '1234562222', 'nicolas.campos@ufv.br', 'M','10627663427','337310026','PR','SSP','1991/11/07',
+(default,'Nicolas Campos',10,2012,'Jack', '1234562222', 'nicolas.campos@ufv.br', 'M','337310026','PR','SSP','1991/11/07',
 'Curitiba','82999000','4192700778'),
 (default,'Bernardo Boaventura',10,2015,'Tom Hagen', '1234561111', 'bernardo.boaventura@ufv.br', 'M','110336793','MS','SSP','1991/06/01',
 'agua Clara','79680000','679185563'),
