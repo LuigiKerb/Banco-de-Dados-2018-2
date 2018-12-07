@@ -66,11 +66,14 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Cargo` (
 CREATE TABLE IF NOT EXISTS `mydb`.`Professor` (
     `ID_Professor` INT NOT NULL,
     `Funcionario_Matricula` INT,
+    `professorCurso` INT,
     PRIMARY KEY (`ID_Professor`),
     FOREIGN KEY (`Funcionario_Matricula`)
         REFERENCES `mydb`.`Funcionario` (`Matricula`)
-        ON DELETE NO ACTION ON UPDATE NO ACTION
-)ENGINE=INNODB;
+        ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY (`professorCurso`)
+        REFERENCES `mydb`.`Curso` (`ID_Curso`)
+)  ENGINE=INNODB;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Aluno`

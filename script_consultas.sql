@@ -8,78 +8,80 @@ FROM
 -- -----------------------------------------------------
 -- 2. Lista dos Cursos, por Instituto
 -- -----------------------------------------------------
-SELECT Nome_Curso as 'Curso'
-from Curso join Instituto on idInstituto = Instituto_idInstituto
-group by Instituto_idInstituto;
+SELECT 
+    c.Nome_Curso AS 'Curso',
+    c.Instituto_idInstituto AS 'Instituto'
+FROM
+    Curso c
+        JOIN
+    Instituto i ON i.idInstituto = c.Instituto_idInstituto
+ORDER BY Instituto_idInstituto;
 
  
 -- -----------------------------------------------------
 -- 3. Lista das disciplinas obrigatórias de um curso ordenadas pelo período em que são
 -- oferecidas
 -- -----------------------------------------------------
-SELECT 
+SELECT DISTINCT
+    d.idDisciplina as 'Código',
     d.Nome AS 'Disciplina',
     semestreOfertado AS 'Semestre Ofertado'
 FROM
     Disciplinas d
         JOIN
-    disciplina_has_curso dc
+    disciplina_has_curso dc on idDisciplina = disciplina_Codigo
 WHERE
-    curso_idCurso = 10
-        AND idDisciplina = disciplina_idDisciplina
+    Status_da_Disciplina = 'Obrigatoria'
 ORDER BY semestreOfertado;
 
 -- -----------------------------------------------------
 -- 4. Lista dos Professores, por Curso
 -- -----------------------------------------------------
 SELECT 
-    nome AS 'Professor'
+    f.Nome AS 'Professor', p.professorCurso AS 'Curso'
 FROM
-    Funcionario
+    Funcionario f
         JOIN
-    Cargo
+    Professor p ON Matricula = ID_Professor
 WHERE
-    Atua = 'professor'
-        AND cargo_idCargo IN (1 , 2, 3);
+    idCargo_Funcionario IN (1 , 2, 3)
+ORDER BY professorCurso;
+
+
 -- -----------------------------------------------------
 -- 5. Lista de alunos, por curso, contendo matrícula, nome, email e ano de entrada na
 -- UFV.
 -- -----------------------------------------------------
 SELECT 
-    a.matricula, a.nome, r.email, a.entrada_curso
+    Matricula_aluno AS 'matricula',
+    Nome,
+    email,
+    entrada_curso AS 'Ano de entrada'
 FROM
-    aluno a
-        JOIN
-    registro r
-WHERE
-    a.matricula = r.aluno_matricula
-ORDER BY curso_idCurso;
+    Aluno
+ORDER BY Aluno_ID_Curso;
+
 -- -----------------------------------------------------
 -- 6. Lista das disciplinas e seus pré-requisitos
 -- -----------------------------------------------------
 SELECT 
+    d.idDisciplina as 'Código disciplina',
     d.Nome AS 'Disciplina',
-    p.nomePrerequisito AS 'Prerequisito'
+    p.Disciplina_Pre AS 'Pré-requisito'
 FROM
     Disciplinas d
         JOIN
-    pre_requisito
-WHERE
-    idDisciplina = disciplina_idDisciplina;
+    pre_requisito p on d.idDisciplina = p.Disciplinas_Codigo;
+    
 -- -----------------------------------------------------
 -- 7. Número de alunos, por disciplina, para um determinado período letivo
 -- -----------------------------------------------------
 SELECT 
-    COUNT(*), D.Disciplina, P.Tipo_Periodo
+    COUNT(*), d.idDisciplina, semestreOfertado
 FROM
-    Aluno AS A
-        JOIN
-    Disciplinas AS D
-        JOIN
-    Periodo AS P ON P.Ano = D.Periodo_Ano
-        AND A.Matricula_A = D.Aluno_Matricula_A
+    Disciplinas
 WHERE
-    D.Codigo = A.Disciplinas_Codigo;
+    semestreOfertado = '2';
 -- -----------------------------------------------------
 -- 8. Lista de disciplinas e respectivos períodos em que foi cursada e resultados para um
 -- determinado aluno (como se fosse o histórico escolar)

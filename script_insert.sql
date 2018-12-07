@@ -265,6 +265,26 @@ values
 (default,'3','Henrique Peluzio','tecnico','Analista de sistemas','hpeluzio@gmail.com','M','120013858','406869194','MG','SSP','1982/8/19',
 '3438559350');
 
+insert into Professor
+(`ID_Professor`, `professorCurso`)
+values
+(1,10),
+(2,10),
+(3,10),
+(4,10),
+(5,10),
+(6,10),
+(7,10),
+(8,10),
+(9,10),
+(10,10),
+(11,10),
+(12,10),
+(13,10),
+(14,10),
+(15,10),
+(16,10),
+(17,10);
 
 insert into Aluno
 (`Matricula_Aluno`,`Nome`,`Aluno_ID_Curso`,`entrada_curso`,`escola2oGrau`, `CPF`, `email`, `Sexo`,`RG`,`UFidentidade`,`orgaoExpedidor`,
