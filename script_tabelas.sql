@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Aluno` (
     `cep` VARCHAR(8),
     `telefone`VARCHAR(12),
     PRIMARY KEY (`Matricula_Aluno`)
-);
+)ENGINE=INNODB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Instituto`
 -- -----------------------------------------------------
@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Periodo` (
     FOREIGN KEY (`periodo_idDisciplina`)
         REFERENCES `mydb`.`Disciplinas` (`Codigo`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
-);
+)ENGINE=INNODB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Disciplinas`
 -- -----------------------------------------------------
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Disciplinas` (
     FOREIGN KEY (`Periodo_Ano`)
         REFERENCES `mydb`.`Periodo` (`Ano`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
-);
+)ENGINE=INNODB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Curso`
 -- -----------------------------------------------------
@@ -152,25 +152,25 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Curso` (
     FOREIGN KEY (`Disciplinas_Codigo` , `Disciplinas_Periodo_Ano`)
         REFERENCES `mydb`.`Disciplinas` (`Codigo` , `Periodo_Ano`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
-);
+)ENGINE=INNODB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Turma` 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Turma` (
     `Local` VARCHAR(30) NOT NULL,
-    `Turma_ID_Curso` varchar(6) not null,
+    `Turma_Disciplinas_Codigo` varchar(6),
     `Dia` ENUM('Segunda', 'Terca', 'Quarta', 'Quinta', 'Sexta'),
     `Horario` VARCHAR(5) DEFAULT '00-00',
     `Tipo` enum('P','T'),
     `Periodo_Ano` INT,
     PRIMARY KEY (`Local`),
-    FOREIGN KEY (`Turma_ID_Curso`)
-        REFERENCES `mydb`.`Curso` (`ID_Curso`)
+    FOREIGN KEY (`Turma_Disciplinas_Codigo`)
+        REFERENCES `mydb`.`Curso` (`Disciplinas_Codigo`)
         ON DELETE NO ACTION ON UPDATE NO ACTION,
     FOREIGN KEY (`Periodo_Ano`)
       REFERENCES `mydb`.`Periodo` (`Ano`)
 	  ON DELETE NO ACTION ON UPDATE NO ACTION
-);
+)ENGINE=INNODB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Matriculado`
 -- -----------------------------------------------------
@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Matriculado` (
     FOREIGN KEY (`Disciplinas_Codigo`)
         REFERENCES `mydb`.`Disciplinas` (`Codigo`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
-);
+)ENGINE=INNODB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Conclui`
 -- -----------------------------------------------------
@@ -201,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Conclui` (
     FOREIGN KEY (`Aluno_Matricula_Aluno`)
         REFERENCES `mydb`.`Aluno` (`Matricula_Aluno`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
-);
+)ENGINE=INNODB;
 -- -----------------------------------------------------
 -- Table `mydb`.`pre_requisito` pra que serve o Disciplinas_Codigo1?
 -- -----------------------------------------------------
@@ -216,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`pre_requisito` (
     FOREIGN KEY (`Disciplinas_Codigo1`)
         REFERENCES `mydb`.`Disciplinas` (`Codigo`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
-);
+)ENGINE=INNODB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Disciplinas_has_Turma`
 -- -----------------------------------------------------
@@ -239,4 +239,4 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Disciplinas_has_Turma` (
 	FOREIGN KEY (`Professor_Funcionario_Matricula`)
         REFERENCES `mydb`.`Professor` (`Funcionario_Matricula`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
-);
+)ENGINE=INNODB;
