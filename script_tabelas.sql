@@ -74,6 +74,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Professor` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Aluno` (
     `Matricula_Aluno` INT NOT NULL,
+    `Aluno_ID_Curso` INT,
     `CPF` VARCHAR(11) NOT NULL,
     `RG` VARCHAR(9),
     `Nome` VARCHAR(45) NOT NULL,
@@ -86,14 +87,15 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Aluno` (
     `escola2oGrau` VARCHAR(45),
     `entrada_curso` VARCHAR(4),
     `email` VARCHAR(45),
-    `identidade` VARCHAR(9),
     `UFidentidade` VARCHAR(2),
     `orgaoExpedidor` VARCHAR(5),
-	`DataNascimento` DATE,
 	`cidade` VARCHAR(45),
     `cep` VARCHAR(8),
     `telefone`VARCHAR(12),
-    PRIMARY KEY (`Matricula_Aluno`)
+    PRIMARY KEY (`Matricula_Aluno`),
+	FOREIGN KEY (`Aluno_ID_Curso`)
+        REFERENCES `mydb`.`Curso` (`ID_Curso`)
+        ON DELETE NO ACTION ON UPDATE NO ACTION
 )ENGINE=INNODB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Instituto`
@@ -121,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Periodo` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Disciplinas` (
     `Codigo` VARCHAR(6) NOT NULL,
-    `Nome` VARCHAR(55),
+    `Nome` VARCHAR(65),
     `Creditos` INT,
     `CargaHoraria_Teorica` INT,
     `CargaHoraria_Pratica` INT,
@@ -207,13 +209,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Conclui` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`pre_requisito` (
     `Disciplinas_Codigo` VARCHAR(6) NOT NULL,
-    `Disciplinas_Codigo1` VARCHAR(6) NOT NULL,
     `Disciplina_Pre` VARCHAR(45),
-    PRIMARY KEY (`Disciplinas_Codigo` , `Disciplinas_Codigo1`),
+    PRIMARY KEY (`Disciplinas_Codigo`),
     FOREIGN KEY (`Disciplinas_Codigo`)
-        REFERENCES `mydb`.`Disciplinas` (`Codigo`)
-        ON DELETE NO ACTION ON UPDATE NO ACTION,
-    FOREIGN KEY (`Disciplinas_Codigo1`)
         REFERENCES `mydb`.`Disciplinas` (`Codigo`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
 )ENGINE=INNODB;
